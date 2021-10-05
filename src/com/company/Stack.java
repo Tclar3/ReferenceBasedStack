@@ -1,6 +1,6 @@
 package com.company;
 
-public class Stack <T> implements ReferenceBasedStack
+public class Stack <T> implements ReferenceBasedStack <T>
 {
     private Node top;
 
@@ -25,22 +25,22 @@ public class Stack <T> implements ReferenceBasedStack
 
 
 
-    public Object pop() throws Exception
+    public T pop() throws Exception
     {
         if(!isEmpty())
         {
             Node n = this.top;
             this.top = this.top.next;
-            return n.data;
+            return (T) n.data;
         }
         else
             throw new Exception("Stack empty: pop");
     }
 
 
-    public Object peek() throws Exception {
+    public T peek() throws Exception {
         if(!isEmpty())
-            return this.top.data;
+            return (T) this.top.data;
         else
             throw new Exception("Stack empty: peek");
     }
